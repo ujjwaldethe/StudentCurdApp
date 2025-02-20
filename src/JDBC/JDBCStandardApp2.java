@@ -1,10 +1,12 @@
+package JDBC;
+
 import java.io.FileInputStream;
 import java.sql.*;
 import java.util.Properties;
 
 public class JDBCStandardApp2 {
     public static Connection getJDBCConnection() throws Exception {
-        FileInputStream f = new FileInputStream("C:\\Users\\krish\\IdeaProjects\\StudentCurdApp\\src\\appplication2.properties");
+        FileInputStream f = new FileInputStream("C:\\Users\\krish\\IdeaProjects\\StudentCurdApp\\src\\JDBC\\appplication2.properties");
         Properties properties = new Properties();
         properties.load(f);
         String url = properties.getProperty("url");
