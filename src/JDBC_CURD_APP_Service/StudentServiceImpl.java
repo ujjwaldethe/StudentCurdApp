@@ -23,11 +23,12 @@ public class StudentServiceImpl implements IStudentService{
 
     @Override
     public String updateStudent(Integer sid, String sname, Integer sage, String saddress) {
+
         return "";
     }
-
     @Override
     public String deleteStudent(Integer sid) {
-        return "";
+        stdService = StudentDaoFactory.getStudentDao();
+        return stdService.deleteStudent(sid);
     }
 }

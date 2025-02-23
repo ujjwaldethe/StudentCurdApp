@@ -38,7 +38,7 @@ public class TestApp {
                 }
                 case 4:
                 {
-                    System.out.println("Under Progress");
+                    deleteOperation();
                     break;
                 }
                 case 5:
@@ -94,5 +94,26 @@ public class TestApp {
         {
             System.out.println("Record Insertion UnSuccessful");
         }
+    }
+    public static void deleteOperation()
+    {
+        int id ;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter Id : ");
+        id = sc.nextInt();
+        IStudentService studentService = StudentServiceFactory.getStudentService();
+        String msg = studentService.deleteStudent(id);
+        if (msg.equalsIgnoreCase("success"))
+        {
+            System.out.println("Record Deleted Successfully");
+        }
+        else if(msg.equalsIgnoreCase("not found"))
+        {
+
+        }
+        else{
+            System.out.println("Record Deletion Successfully");
+        }
+
     }
 }

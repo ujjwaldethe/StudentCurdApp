@@ -83,6 +83,31 @@ public class StudentDaompl implements IstudentDao{
 
     @Override
     public String deleteStudent(Integer sid) {
-        return "";
+
+        try {
+            conn = JDBCStandardApp2.getJDBCConnection();
+            String sqlInsertQuery  = "delete from students where id=?";
+            if(conn!=null)
+            {
+                ps = conn.prepareStatement(sqlInsertQuery);
+            }
+            if(ps!=null)
+            {
+                ps.setInt(1,sid);
+                int rowAffected= ps.executeUpdate();
+                if(rowAffected==1)
+                {
+                    return "Success";
+                }
+                else {
+                    return "not found";
+                }
+            }
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+       return "Failed";
     }
+
 }
